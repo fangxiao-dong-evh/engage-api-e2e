@@ -10,7 +10,7 @@ test.before(async t => {
     bearerToken = await getBearerToken();
 });
 
-test('sms endpoint: should return 200 for a patient not on Engaged Mobile app', async t => {
+test('sms endpoint: should return 500 for a patient already on Engaged Mobile app', async t => {
 
     let result = await pfyHttps({path: 'sms', method: 'POST', bearerToken, payload: {
             'clientId': 54,
@@ -23,7 +23,7 @@ test('sms endpoint: should return 200 for a patient not on Engaged Mobile app', 
     t.is(result.statusCode, 500);
 });
 
-test('sms endpoint: should return 500 for a patient already on Engaged Mobile app', async t => {
+test('sms endpoint: should return 200 for a patient not yet on Engaged Mobile app', async t => {
 
     let result = await pfyHttps({path: 'sms', method: 'POST', bearerToken, payload: {
             'clientId': 54,
