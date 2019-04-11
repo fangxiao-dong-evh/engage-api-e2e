@@ -1,6 +1,7 @@
 'use strict';
 
 const pfyHttps = require('../lib/promisifiedhttps');
+const getBearerToken = require('../lib/getbearertoken');
 const test = require('ava');
 
 test('Android - Redirect to Google Play', async t => {
